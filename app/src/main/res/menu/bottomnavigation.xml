@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_feed"/>
     <item
         android:id="@+id/recommendation"
-        android:title="Search"
+        android:title="Recommendation"
         android:icon="@drawable/ic_recommendation"/>
 
     <item

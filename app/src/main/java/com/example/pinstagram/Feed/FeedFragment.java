@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pinstagram.Post.DashBoardForPostFragment;
-import com.example.pinstagram.Post.PostFragment;
+import com.example.pinstagram.Post.Post;
 import com.example.pinstagram.R;
 
 import java.util.ArrayList;
@@ -88,13 +89,15 @@ public class FeedFragment extends Fragment implements InstagramFeedRVAdapter.Ins
     }
 
     @Override
-    public void onUserClick(InstaModel instaModel) {
-        getView().findViewById(R.id.view_post).setOnClickListener(view1 -> {
-//          startActivity(new Intent(, DashBoardForPostFragment.class));
-            Intent intent = new Intent(getActivity(), DashBoardForPostFragment.class);
+    public void onUserClick(InstaModel instaModel,View v,int position) {
+//        getView().findViewById(R.id.view_post).setOnClickListener(view1 -> {
+//            Intent intent = new Intent(getActivity(), DashBoardForPostFragment.class);
 //            intent.putExtra("Hello", "Nisar");
-            getActivity().startActivity(intent);
-
-        });
+//            getActivity().startActivity(intent);
+//        });
+        Intent i = new Intent(getContext(), Post.class);
+//        i.putExtra("userName",instaModel.getUsername());
+        startActivity(i);
     }
+
 }

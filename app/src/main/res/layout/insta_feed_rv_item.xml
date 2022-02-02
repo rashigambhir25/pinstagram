@@ -32,14 +32,12 @@
     </LinearLayout>
 
     <!--image view to display the post image-->
-    <ImageButton
+    <ImageView
         android:id="@+id/idIVPost"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/idLLTopBar"
         android:adjustViewBounds="true"
-        android:clickable="true"
-        android:onClick="setCurrentFragment"
         android:scaleType="centerCrop"
         android:src="@drawable/sample" />
 
@@ -50,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/idIVPost"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
         android:padding="5dp"
@@ -68,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/idIVPost"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
         android:padding="5dp"
@@ -76,16 +74,71 @@
         android:textColor="@color/black"
         android:textStyle="bold" />
 
+<!--    <Button-->
+<!--        android:id="@+id/view_post"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/idIVPost"-->
+<!--        android:layout_marginStart="300dp"-->
+<!--        android:layout_marginEnd="6dp"-->
+<!--        android:layout_marginBottom="6dp"-->
+<!--        android:padding="6dp"-->
+<!--        android:text="View Post" />-->
     <Button
-        android:id="@+id/view_post"
-        android:layout_width="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/idIVPost"
-        android:layout_marginStart="300dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="6dp"
-        android:padding="6dp"
-        android:text="View Post" />
+        android:text="👍🏻" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idIVPost"
+        android:layout_marginStart="64dp"
+        android:text="❤" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idIVPost"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="54dp"
+        android:text="😂" />
+
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idIVPost"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="54dp"
+        android:text="👎" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idIVPost"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="54dp"
+        android:text="🤮" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="60dp"
+        android:layout_height="54dp"
+        android:layout_above="@+id/idTVPostDesc"
+        android:layout_below="@+id/idIVPost"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="48dp"
+        android:text="😡" />
 
     <TextView
         android:id="@+id/idTVPostDesc"
@@ -99,5 +152,15 @@
         android:padding="5dp"
         android:textColor="@color/black"
         android:textSize="11sp" />
+
+    <ImageButton
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="21dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="375dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp"
+        android:padding="3dp"
+        android:src="@drawable/ic_baseline_more_vert_24" />
 
 </RelativeLayout>

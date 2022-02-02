@@ -56,7 +56,7 @@ public class InstagramFeedRVAdapter extends RecyclerView.Adapter<InstagramFeedRV
 //        }
         Picasso.get().load(instaModel.getAuthor_url()).into(holder.authorIV);
         holder.rootView.setOnClickListener((view -> {
-            instaModalInterface.onUserClick(instaModel);
+            instaModalInterface.onUserClick(instaModel,view,holder.getAdapterPosition());
         }));
 
     }
@@ -67,7 +67,7 @@ public class InstagramFeedRVAdapter extends RecyclerView.Adapter<InstagramFeedRV
     }
     public interface InstaModalInterface
     {
-        void onUserClick(InstaModel instaModel);
+        void onUserClick(InstaModel instaModel,View v,int position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -3,16 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_feed.xml" value="0.3140625" />
+        <entry key="app/src/main/res/drawable/ic_recommendation.xml" value="0.3140625" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.3140625" />
         <entry key="app/src/main/res/layout/activity_dash_board_for_post_fragment.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.2164855072463768" />
         <entry key="app/src/main/res/layout/activity_feed_dashboard.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_post.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/layout/activity_post.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/card_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2164855072463768" />
         <entry key="app/src/main/res/layout/fragment_my_profile.xml" value="0.2164855072463768" />
         <entry key="app/src/main/res/layout/fragment_post.xml" value="0.2164855072463768" />
         <entry key="app/src/main/res/layout/fragment_recommendation.xml" value="0.2164855072463768" />
-        <entry key="app/src/main/res/layout/insta_feed_rv_item.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/insta_feed_rv_item.xml" value="0.375" />
         <entry key="app/src/main/res/menu/bottomnavigation.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/menu/options_menu.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/xml/searchable.xml" value="0.1897644927536232" />
       </map>
     </option>
   </component>
