@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.pinstagram.MyProfile.PostDto;
 import com.example.pinstagram.R;
 import com.squareup.picasso.Picasso;
 
@@ -21,11 +22,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class InstagramFeedRVAdapter extends RecyclerView.Adapter<InstagramFeedRVAdapter.ViewHolder> {
 
-    private final List<InstaModel> instaModalArrayList;
+    private final List<PostDto> postDtoList;
     private final InstaModalInterface instaModalInterface;
 
-    public InstagramFeedRVAdapter(List<InstaModel> instaModalArrayList, InstaModalInterface instaModalInterface) {
-        this.instaModalArrayList = instaModalArrayList;
+    public InstagramFeedRVAdapter(List<PostDto> postDtoList, InstaModalInterface instaModalInterface) {
+        this.postDtoList = postDtoList;
         this.instaModalInterface = instaModalInterface;
     }
 
@@ -46,28 +47,28 @@ public class InstagramFeedRVAdapter extends RecyclerView.Adapter<InstagramFeedRV
 //        holder.desctv.setText(modal.getCaption());
 //        holder.likeTV.setText("" + modal.getLikesCount() + " likes");
 //        Picasso.get().load(modal.getAuthor_url()).into(holder.authorIV);
-        InstaModel instaModel = instaModalArrayList.get(position);
-        holder.authorTV.setText(instaModel.getUsername()+"");
-        holder.likeTV.setText(instaModel.getLikesCount()+"");
-        holder.desctv.setText(instaModel.getCaption()+"");
-        Glide.with(holder.postIV.getContext()).load(instaModel.getMedia_url()).placeholder(R.drawable.sample).into(holder.postIV);
+        PostDto postDto = postDtoList.get(position);
+        holder.authorTV.setText(postDto.getUserId()+"");
+        holder.likeTV.setText(postDto.getNumberOfLikes()+"");
+        holder.desctv.setText(postDto.getDescription()+"");
+        Glide.with(holder.postIV.getContext()).load(postDto.getUrl()).placeholder(R.drawable.sample).into(holder.postIV);
 //        if (instaModel.getMedia_type().equals("IMAGE")) {
 //            Picasso.get().load(instaModel.getMedia_url()).into(holder.postIV);
 //        }
-        Picasso.get().load(instaModel.getAuthor_url()).into(holder.authorIV);
+        Picasso.get().load(postDto.getUrl()).into(holder.authorIV);
         holder.rootView.setOnClickListener((view -> {
-            instaModalInterface.onUserClick(instaModel,view,holder.getAdapterPosition());
+            instaModalInterface.onUserClick(postDto,view,holder.getAdapterPosition());
         }));
 
     }
 
     @Override
     public int getItemCount() {
-        return instaModalArrayList.size();
+        return postDtoList.size();
     }
     public interface InstaModalInterface
     {
-        void onUserClick(InstaModel instaModel,View v,int position);
+        void onUserClick(PostDto postDto,View v,int position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -82,9 +83,9 @@ public class InstagramFeedRVAdapter extends RecyclerView.Adapter<InstagramFeedRV
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             rootView = itemView;
-            authorIV = itemView.findViewById(R.id.idCVAuthor);
-            authorTV = itemView.findViewById(R.id.idTVAuthorName);
-            postIV = itemView.findViewById(R.id.idIVPost);
+            authorIV = itemView.findViewById(R.id.idCVAuthor_feed);
+            authorTV = itemView.findViewById(R.id.idTVAuthorName_feed);
+            postIV = itemView.findViewById(R.id.idIVPost_feed);
             likeTV = itemView.findViewById(R.id.idTVLikes);
             desctv = itemView.findViewById(R.id.idTVPostDesc);
         }

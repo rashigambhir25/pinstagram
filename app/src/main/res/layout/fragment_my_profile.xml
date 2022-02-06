@@ -7,11 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MyProfile.MyProfileFragment">
 
-<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="my profile" />-->
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/idCVAuthor"
         android:layout_width="93dp"
@@ -20,12 +15,13 @@
         android:src="@drawable/sample"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <TextView
+        android:id="@+id/userName_profile"
         android:layout_width="152dp"
         android:layout_height="42dp"
         android:text="UserName"
@@ -34,10 +30,156 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.204" />
+
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/textView3"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Post"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/no_of_post_frag" />
+
+    <Button
+        android:id="@+id/following"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="118dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:text="Following"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/followers"
+        app:layout_constraintTop_toBottomOf="@+id/no_of_following_frag" />
+
+    <Button
+        android:id="@+id/followers"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="118dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:text="Followers"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/no_of_followers_frag" />
+
+    <TextView
+        android:id="@+id/no_of_post_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="24dp"
+        android:text="No."
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/no_of_followers_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
+        android:text="Number"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/no_of_post_frag"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/no_of_following_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Number"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/no_of_followers_frag"
+        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_post"
+        android:backgroundTint="@color/white"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Post"
+        android:outlineProvider="bounds"
+        android:textColor="@color/Plum"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName_profile" />
+
+    <Button
+        android:id="@+id/button_story"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Story"
+        android:backgroundTint="@color/white"
+        android:outlineProvider="bounds"
+        android:textColor="@color/Plum"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button_post"
+        app:layout_constraintTop_toBottomOf="@+id/userName_profile" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="LogOut"
+        android:backgroundTint="@color/white"
+        android:outlineProvider="bounds"
+        android:textColor="@color/Plum"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button_post"
+        app:layout_constraintTop_toBottomOf="@+id/userName_profile" />
+
+    <GridView
+        android:id="@+id/grid_profile"
+        android:layout_width="match_parent"
+        android:layout_height="481dp"
+        android:layout_marginTop="10dp"
+        android:numColumns="3"
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logout" />
+
+    <ImageButton
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="41dp"
+        android:layout_height="33dp"
+        android:padding="3dp"
+        android:src="@drawable/ic_baseline_more_vert_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.981"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.017" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

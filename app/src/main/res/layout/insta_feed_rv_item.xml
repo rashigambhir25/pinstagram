@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/idLLTopBar"
+        android:id="@+id/idLLTopBar_feed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -13,14 +13,14 @@
 
         <!--circle image for displaying the user image-->
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/idCVAuthor"
+            android:id="@+id/idCVAuthor_feed"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="5dp" />
 
         <!--text view for displaying user name-->
         <TextView
-            android:id="@+id/idTVAuthorName"
+            android:id="@+id/idTVAuthorName_feed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -32,21 +32,32 @@
     </LinearLayout>
 
     <!--image view to display the post image-->
-    <ImageView
-        android:id="@+id/idIVPost"
+
+    <VideoView
+        android:id="@+id/video_feed"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@id/idLLTopBar"
+        android:layout_below="@id/idLLTopBar_feed"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true" />
+
+    <!--text view to display likes count-->
+
+    <ImageView
+        android:id="@+id/idIVPost_feed"
+        android:layout_width="match_parent"
+        android:layout_height="301dp"
+        android:layout_below="@id/idLLTopBar_feed"
+        android:layout_marginTop="12dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/sample" />
 
-    <!--text view to display likes count-->
     <TextView
         android:id="@+id/idTVLikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idIVPost"
+        android:layout_below="@id/idIVPost_feed"
         android:layout_marginStart="6dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="6dp"
@@ -64,7 +75,7 @@
         android:id="@+id/likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idIVPost"
+        android:layout_below="@id/idIVPost_feed"
         android:layout_marginStart="35dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="6dp"
@@ -88,14 +99,14 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idIVPost"
+        android:layout_below="@+id/idIVPost_feed"
         android:text="👍🏻" />
 
     <Button
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idIVPost"
+        android:layout_below="@+id/idIVPost_feed"
         android:layout_marginStart="64dp"
         android:text="❤" />
 
@@ -103,7 +114,7 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idIVPost"
+        android:layout_below="@+id/idIVPost_feed"
         android:layout_marginStart="128dp"
         android:layout_marginBottom="54dp"
         android:text="😂" />
@@ -113,7 +124,7 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idIVPost"
+        android:layout_below="@+id/idIVPost_feed"
         android:layout_marginStart="192dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="54dp"
@@ -123,7 +134,7 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idIVPost"
+        android:layout_below="@+id/idIVPost_feed"
         android:layout_marginStart="256dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="54dp"
@@ -134,7 +145,7 @@
         android:layout_width="60dp"
         android:layout_height="54dp"
         android:layout_above="@+id/idTVPostDesc"
-        android:layout_below="@+id/idIVPost"
+        android:layout_below="@+id/idIVPost_feed"
         android:layout_marginStart="320dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="48dp"

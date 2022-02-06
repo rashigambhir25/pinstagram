@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +16,7 @@ import android.widget.SearchView;
 import com.example.pinstagram.MyProfile.MyProfileFragment;
 import com.example.pinstagram.R;
 import com.example.pinstagram.Recommendation.RecommendationFragment;
+import com.example.pinstagram.SearchList.SearchUserList;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Dashboard extends AppCompatActivity {
@@ -65,9 +67,24 @@ public class Dashboard extends AppCompatActivity {
                 (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                Intent i = new Intent(getApplicationContext(), SearchUserList.class);
+                i.putExtra("query", s);
+                startActivity(i);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
 
         return true;
 
     }
+
 }
 

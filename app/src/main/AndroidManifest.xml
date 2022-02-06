@@ -11,19 +11,67 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Pinstagram">
+        android:theme="@style/Theme.Pinstagram"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".Post.Post"
+            android:name=".MyProfile.UpdateProfile"
             android:exported="false" />
         <activity
-            android:name=".Feed.Dashboard"
+            android:name=".Feed.NullDataIssue"
+            android:exported="false" />
+        <activity
+            android:name=".Post.StoryVideo"
+            android:exported="false" />
+        <activity
+            android:name=".Post.StoryImage"
+            android:exported="false" />
+        <activity
+            android:name=".SearchList.SearchUserList"
+            android:exported="false" />
+        <activity
+            android:name=".Post.StoryUpload"
+            android:exported="false" />
+        <activity
+            android:name=".UserProfile.UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Relations.Followers"
+            android:exported="false" />
+        <activity
+            android:name=".MyProfile.PostVideo"
+            android:exported="false" />
+        <activity
+            android:name=".MyProfile.PostImage"
+            android:exported="false" />
+        <activity
+            android:name=".Comments.Comments"
+            android:exported="false" />
+        <activity
+            android:name=".Relations.Following"
+            android:exported="false" />
+        <activity
+            android:name=".Splash.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="android.app.searchable"
+        </activity>
+        <activity
+            android:name=".Login.Login"
+            android:exported="true" />
+        <activity
+            android:name=".Register.Register"
+            android:exported="true" />
+        <activity
+            android:name=".Post.Post"
+            android:exported="true" />
+        <activity
+            android:name=".Feed.Dashboard"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
     </application>
