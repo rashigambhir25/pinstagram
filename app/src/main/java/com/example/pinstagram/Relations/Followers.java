@@ -1,5 +1,7 @@
 package com.example.pinstagram.Relations;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.pinstagram.Feed.FeedFragment;
@@ -32,6 +35,10 @@ public class Followers extends AppCompatActivity implements FollowersAdapter.Fol
         setContentView(R.layout.activity_followers);
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
         String userId = sharedPreferences.getString("userId","B");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         Retrofit retrofit = MainBuilder.getInstance();
         Call<List<String>> followers = retrofit.create(MainInterface.class).findFollowerByUserId(userId,"following");
         followers.enqueue(new Callback<List<String>>() {
@@ -57,5 +64,14 @@ public class Followers extends AppCompatActivity implements FollowersAdapter.Fol
     @Override
     public void onUserClick(String followersModel) {
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -68,8 +68,8 @@ public class FeedFragment extends Fragment implements InstagramFeedRVAdapter.Ins
                     recyclerView1.setAdapter(storyViewAdapter);
                 }
                 else{
-                    Toast.makeText(getContext(), "Sever Down Story", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getContext(),NullDataIssue.class));
+                    Toast.makeText(getContext(), "No Story", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(getContext(),NullDataIssue.class));
                 }
 
             }
@@ -91,8 +91,8 @@ public class FeedFragment extends Fragment implements InstagramFeedRVAdapter.Ins
                 recyclerView.setAdapter(instagramFeedRVAdapter);
                 Toast.makeText(getContext(), "Feed Loaded", Toast.LENGTH_SHORT).show();}
                 else{
-                    Toast.makeText(getContext(), "Server Down Post", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getContext(),NullDataIssue.class));
+                    Toast.makeText(getContext(), "No Post", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(getContext(),NullDataIssue.class));
                 }
             }
             @Override

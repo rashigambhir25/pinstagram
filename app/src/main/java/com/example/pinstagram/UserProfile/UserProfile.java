@@ -1,11 +1,14 @@
 package com.example.pinstagram.UserProfile;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -39,6 +42,10 @@ public class UserProfile extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
         String userId = sharedPreferences.getString("userId","B");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         Bundle bundle = getIntent().getExtras();
         UserDto targetDto = (UserDto) bundle.getSerializable("target");
 
@@ -160,6 +167,9 @@ public class UserProfile extends AppCompatActivity {
         });
 
 
+
+
+
 //        Retrofit retrofit = MainBuilder.getInstance();
 //        Call<List<>>
 
@@ -167,5 +177,14 @@ public class UserProfile extends AppCompatActivity {
 //        TextView username = findViewById(R.id.userName_profile);
 //        if(followersModel.getUserName()!=username){
 //        }
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,11 +1,14 @@
 package com.example.pinstagram.SearchList;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.pinstagram.R;
@@ -29,6 +32,9 @@ public class SearchUserList extends AppCompatActivity implements SearchAdapter.S
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user_list);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         String query= getIntent().getStringExtra("query");
         Retrofit retrofit= MainBuilder.getInstance();
@@ -59,5 +65,15 @@ public class SearchUserList extends AppCompatActivity implements SearchAdapter.S
         bundle.putSerializable("target",userDto);
         i.putExtras(bundle);
         startActivity(i);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

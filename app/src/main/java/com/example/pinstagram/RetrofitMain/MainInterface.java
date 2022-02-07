@@ -1,5 +1,6 @@
 package com.example.pinstagram.RetrofitMain;
 
+import com.example.pinstagram.Ads.UserAdUrl;
 import com.example.pinstagram.Comments.CommentDto;
 import com.example.pinstagram.Feed.Story;
 import com.example.pinstagram.Login.LoginDto;
@@ -9,6 +10,7 @@ import com.example.pinstagram.MyProfile.PostDto;
 import com.example.pinstagram.Post.ReactionDto;
 import com.example.pinstagram.Register.RegisterDto;
 import com.example.pinstagram.Register.StatusDto;
+import com.example.pinstagram.SearchList.AddSearchDto;
 import com.example.pinstagram.UserProfile.ConnectionDto;
 import com.example.pinstagram.UserProfile.UserDto;
 
@@ -89,6 +91,15 @@ public interface MainInterface {
 
     @POST("/authentication/authenticate/logout")
     Call<StatusDto> logout(@Body LogoutDto logoutDto);
+// AddTOSearch
+    @POST("/user/add")
+    Call<Void> addToSearch (@Body AddSearchDto addSearchDto);
+
+
+//    //    Ads
+    @GET("/recommendation/recommend/{id}")
+    Call<UserAdUrl> getAds (@Path("id") String userId);
+
 
 
 }

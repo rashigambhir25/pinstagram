@@ -35,7 +35,6 @@ public class Comments extends AppCompatActivity implements CommentAdapter.Commen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
-
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
         String userId = sharedPreferences.getString("userId","B");
         Long postId = getIntent().getLongExtra("postId",10000000000L);

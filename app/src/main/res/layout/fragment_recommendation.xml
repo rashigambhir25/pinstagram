@@ -3,12 +3,12 @@
     android:layout_height="match_parent"
     tools:context=".Recommendation.RecommendationFragment">
     <GridView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:numColumns="3"
+        android:numColumns="2"
         android:horizontalSpacing="4dp"
         android:verticalSpacing="4dp"
-        android:id="@+id/grid_view"
+        android:id="@+id/grid_view_recommendation"
         />
 </LinearLayout>

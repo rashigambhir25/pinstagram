@@ -60,6 +60,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         CommentDto commentDto = commentDtoList.get(position);
         holder.comment.setText(commentDto.getComment()+"");
         holder.recyclerView.setVisibility(View.GONE);
+//        String childComment=holder.childComment.getText().toString();
         if(commentDto.getChildCount()==0){
             holder.viewMore.setVisibility(View.GONE);
         }
@@ -69,11 +70,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             CommentDto commentDto1 = new CommentDto();
             SharedPreferences sharedPreferences = context.getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
             String userId = sharedPreferences.getString("userId","B");
-            TextView comment2 = holder.comment.findViewById(R.id.add_comment);
+//            String comment2 = holder.childComment.getText().toString();
 //            Log.d("hey", comment2+ "");
             commentDto1.setPostId(commentDto.getPostId());
             commentDto1.setUserEmail(userId);
             commentDto1.setParentCommentId(commentDto.getId());
+//            commentDto1.setComment(comment2.getText().toString());
             commentDto1.setComment("this feature will be added in next update");
             //Time
             Long unixTime = System.currentTimeMillis() / 1000L;
@@ -186,6 +188,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         private View rootView;
         private RecyclerView recyclerView;
         private Button reply;
+        private EditText childComment;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -194,6 +197,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
             viewMore = itemView.findViewById(R.id.bt_view_more);
             recyclerView = itemView.findViewById(R.id.recycle_card1);
             reply = itemView.findViewById(R.id.bt_reply);
+            childComment = itemView.findViewById(R.id.add_comment);
         }
 
     }

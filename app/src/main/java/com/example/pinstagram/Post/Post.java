@@ -1,5 +1,7 @@
 package com.example.pinstagram.Post;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,6 +10,7 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.MediaController;
@@ -42,6 +45,9 @@ public class Post extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
         String userId = sharedPreferences.getString("userId","B");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         TextView username = findViewById(R.id.idTVAuthorName);
         TextView caption = findViewById(R.id.idTVPostDesc_p);
@@ -127,6 +133,15 @@ public class Post extends AppCompatActivity {
             i.putExtra("postId",postId);
             startActivity(i);
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

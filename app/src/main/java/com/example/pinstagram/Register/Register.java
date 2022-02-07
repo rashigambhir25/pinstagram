@@ -15,6 +15,7 @@ import com.example.pinstagram.R;
 import com.example.pinstagram.RetrofitMain.CRMBuilder;
 import com.example.pinstagram.RetrofitMain.MainBuilder;
 import com.example.pinstagram.RetrofitMain.MainInterface;
+import com.example.pinstagram.SearchList.AddSearchDto;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,7 +43,29 @@ public class Register extends AppCompatActivity {
             registerDto.setAppId("2");
             registerDto.setPassword(etpassword.getText().toString());
             registerDto.setContact(etphone.getText().toString());
+            AddSearchDto addSearchDto=new AddSearchDto();
+            addSearchDto.setId(registerDto.getUserEmail());
+            addSearchDto.setName(registerDto.getName());;
+            addSearchDto.setType(false);
             Retrofit retrofit = CRMBuilder.getInstance();
+            Retrofit retrofit1 = MainBuilder.getInstance();
+            //addTOSearch
+            Call<Void> addSearch=retrofit1.create(MainInterface.class).addToSearch(addSearchDto);
+            addSearch.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+
+            //register
             Call<StatusDto> statusDtoCall=retrofit.create(MainInterface.class).register(registerDto);
             statusDtoCall.enqueue(new Callback<StatusDto>() {
                 @Override
