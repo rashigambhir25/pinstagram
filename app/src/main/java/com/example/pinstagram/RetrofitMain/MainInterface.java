@@ -11,6 +11,7 @@ import com.example.pinstagram.Post.ReactionDto;
 import com.example.pinstagram.Register.RegisterDto;
 import com.example.pinstagram.Register.StatusDto;
 import com.example.pinstagram.SearchList.AddSearchDto;
+import com.example.pinstagram.UserProfile.CheckOrgDto;
 import com.example.pinstagram.UserProfile.ConnectionDto;
 import com.example.pinstagram.UserProfile.UserDto;
 
@@ -99,6 +100,10 @@ public interface MainInterface {
 //    //    Ads
     @GET("/recommendation/recommend/{id}")
     Call<UserAdUrl> getAds (@Path("id") String userId);
+
+    //Check If Organisation
+    @GET("/organisation/checkOrg/{id}")
+    Call<CheckOrgDto> checkIfOrg(@Path("id") String id);
 
 
 

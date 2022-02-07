@@ -37,7 +37,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         UserDto userDto = userDtoList.get(position);
-        String userName=userDto.getId();
+        String userName=userDto.getName();
         holder.userName.setText(userName);
         holder.rootView.setOnClickListener((view -> searchInterface.onUserClick(userDto,view, holder.getAdapterPosition())));
 

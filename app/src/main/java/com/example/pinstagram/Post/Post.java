@@ -91,6 +91,9 @@ public class Post extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     Toast.makeText(getApplicationContext(), "Liked", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(getApplicationContext(),Post.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+//                    finish();
+//                    startActivity(getIntent());
                 }
 
                 @Override
@@ -115,6 +118,8 @@ public class Post extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     Toast.makeText(getApplicationContext(), "Disliked", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                    startActivity(getIntent());
 
                 }
 

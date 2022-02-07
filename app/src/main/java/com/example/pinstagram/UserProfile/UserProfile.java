@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class UserProfile extends AppCompatActivity {
 
     TextView userName,noOfFollowers,noOfFollowing;
     Button followBtn,follower,following;
+    ImageView blueTick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +60,34 @@ public class UserProfile extends AppCompatActivity {
         followBtn=findViewById(R.id.button_follow_t);
         follower= findViewById(R.id.followers_t);
         following = findViewById(R.id.following_t);
+        blueTick = findViewById(R.id.blue_tick);
+
 
         userName.setText(targetDto.getName());
+        Retrofit retrofit=MainBuilder.getInstance();
+
+
+        //Check If Organisation
+        Call<CheckOrgDto> boolRes=retrofit.create(MainInterface.class).checkIfOrg(targetDto.getId());
+        boolRes.enqueue(new Callback<CheckOrgDto>() {
+            @Override
+            public void onResponse(Call<CheckOrgDto> call, Response<CheckOrgDto> response) {
+                if(response.body().isType()){
+                    blueTick.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    blueTick.setVisibility(View.INVISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<CheckOrgDto> call, Throwable t) {
+
+            }
+        });
+
 
         follower.setOnClickListener(view1 -> {
             editor.putString("targetId",targetDto.getId());
@@ -73,7 +101,6 @@ public class UserProfile extends AppCompatActivity {
             startActivity(new Intent(this, Following.class));
         });
 
-        Retrofit retrofit=MainBuilder.getInstance();
 
         //setCountOnFollow
         Call<List<Long>> counts=retrofit.create(MainInterface.class).getNoOfConnections(targetDto.getId());

@@ -20,6 +20,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.063" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/blue_tick"
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/blue_tick"
+        app:layout_constraintBottom_toTopOf="@+id/button_following_t"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/userName_profile_t"
+        app:layout_constraintTop_toBottomOf="@+id/following_t"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/userName_profile_t"
         android:layout_width="152dp"
