@@ -85,7 +85,6 @@ public class Post extends AppCompatActivity {
             //Time
             Long unixTime = System.currentTimeMillis() / 1000L;
             reactionDto.setTimeStamp(unixTime);
-
             Retrofit retrofit= MainBuilder.getInstance();
             Call<Void> posReaction=retrofit.create(MainInterface.class).addReaction(reactionDto);
             posReaction.enqueue(new Callback<Void>() {

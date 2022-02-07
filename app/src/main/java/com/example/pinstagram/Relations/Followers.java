@@ -34,13 +34,14 @@ public class Followers extends AppCompatActivity implements FollowersAdapter.Fol
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_followers);
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
-        String userId = sharedPreferences.getString("userId","B");
+//        String userId = sharedPreferences.getString("userId","B");
+        String targetId=sharedPreferences.getString("targetId","rashi");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Retrofit retrofit = MainBuilder.getInstance();
-        Call<List<String>> followers = retrofit.create(MainInterface.class).findFollowerByUserId(userId,"following");
+        Call<List<String>> followers = retrofit.create(MainInterface.class).findFollowerByUserId(targetId,"following");
         followers.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {

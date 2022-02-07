@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.pinstagram.Comments.Comments;
 import com.example.pinstagram.MyProfile.PostDto;
 import com.example.pinstagram.Post.Post;
+import com.example.pinstagram.Post.ReactionDto;
 import com.example.pinstagram.Post.StoryUpload;
 import com.example.pinstagram.R;
 import com.example.pinstagram.RetrofitMain.MainBuilder;
@@ -86,7 +87,7 @@ public class FeedFragment extends Fragment implements InstagramFeedRVAdapter.Ins
             public void onResponse(Call<List<PostDto>> call, Response<List<PostDto>> response) {
                 if(response.code()==200||response.code()==201){
                 RecyclerView recyclerView = getView().findViewById(R.id.idRVInstaFeeds);
-                InstagramFeedRVAdapter instagramFeedRVAdapter = new InstagramFeedRVAdapter(response.body(), FeedFragment.this);
+                InstagramFeedRVAdapter instagramFeedRVAdapter = new InstagramFeedRVAdapter(response.body(), FeedFragment.this,getContext());
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(instagramFeedRVAdapter);
                 Toast.makeText(getContext(), "Feed Loaded", Toast.LENGTH_SHORT).show();}
@@ -100,6 +101,58 @@ public class FeedFragment extends Fragment implements InstagramFeedRVAdapter.Ins
 
             }
         });
+        PostDto postDto = new PostDto();
+
+//        getView().findViewById(R.id.button_thumbs_up).setOnClickListener(view2 -> {
+//            ReactionDto reactionDto=new ReactionDto();
+//            reactionDto.setPostId(postDto.getId());
+//            reactionDto.setReactionBy(userId);
+//            reactionDto.setReactionType(true);
+//            //Time
+//            Long unixTime = System.currentTimeMillis() / 1000L;
+//            reactionDto.setTimeStamp(unixTime);
+//
+//            Call<Void> posReaction=retrofit.create(MainInterface.class).addReaction(reactionDto);
+//            posReaction.enqueue(new Callback<Void>() {
+//                @Override
+//                public void onResponse(Call<Void> call, Response<Void> response) {
+//                    Toast.makeText(getContext(), "Liked", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                @Override
+//                public void onFailure(Call<Void> call, Throwable t) {
+//
+//                }
+//            });
+//        });
+//
+//        getView().findViewById(R.id.button_thumbs_down).setOnClickListener(view1 -> {
+//            ReactionDto reactionDto=new ReactionDto();
+//            reactionDto.setPostId(postDto.getId());
+//            reactionDto.setReactionBy(userId);
+//            reactionDto.setReactionType(false);
+//            //Time
+//            Long unixTime = System.currentTimeMillis()/1000L;
+//            reactionDto.setTimeStamp(unixTime);
+//            Call<Void> negReaction=retrofit.create(MainInterface.class).addReaction(reactionDto);
+//            negReaction.enqueue(new Callback<Void>() {
+//                @Override
+//                public void onResponse(Call<Void> call, Response<Void> response) {
+//                    Toast.makeText(getContext(), "Disliked", Toast.LENGTH_SHORT).show();
+//
+//                }
+//
+//                @Override
+//                public void onFailure(Call<Void> call, Throwable t) {
+//
+//                }
+//            });
+//
+//        });
+
+
+
+
 
 //        List<Story> data = loadStoryData();
 //        RecyclerView recyclerView1 = view.findViewById(R.id.storiesBar);

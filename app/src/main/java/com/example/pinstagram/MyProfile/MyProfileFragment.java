@@ -58,6 +58,7 @@ public class MyProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         String userId = sharedPreferences.getString("userId","B");
         TextView username = getView().findViewById(R.id.userName_profile);
         username.setText(userId);
@@ -117,10 +118,14 @@ public class MyProfileFragment extends Fragment {
         });
 
         follower.setOnClickListener(view1 -> {
+            editor.putString("targetId",userId);
+            editor.apply();
             startActivity(new Intent(getContext(), Followers.class));
         });
 
         following.setOnClickListener(view1 -> {
+            editor.putString("targetId",userId);
+            editor.apply();
             startActivity(new Intent(getContext(), Following.class));
         });
 

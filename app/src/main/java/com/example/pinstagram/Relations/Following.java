@@ -31,13 +31,14 @@ public class Following extends AppCompatActivity implements FollowingAdapter.Fol
         setContentView(R.layout.activity_following);
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
-        String userId = sharedPreferences.getString("userId","B");
+//        String userId = sharedPreferences.getString("userId","B");
+        String targetId=sharedPreferences.getString("targetId","rashi");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Retrofit retrofit = MainBuilder.getInstance();
-        Call<List<String>> following = retrofit.create(MainInterface.class).findFollowingByUserId(userId);
+        Call<List<String>> following = retrofit.create(MainInterface.class).findFollowingByUserId(targetId);
         following.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {

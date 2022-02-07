@@ -20,6 +20,8 @@ import com.example.pinstagram.MyProfile.CustomAdapter;
 import com.example.pinstagram.MyProfile.PostDto;
 import com.example.pinstagram.Post.Post;
 import com.example.pinstagram.R;
+import com.example.pinstagram.Relations.Followers;
+import com.example.pinstagram.Relations.Following;
 import com.example.pinstagram.RetrofitMain.MainBuilder;
 import com.example.pinstagram.RetrofitMain.MainInterface;
 
@@ -33,7 +35,7 @@ import retrofit2.Retrofit;
 public class UserProfile extends AppCompatActivity {
 
     TextView userName,noOfFollowers,noOfFollowing;
-    Button followBtn;
+    Button followBtn,follower,following;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.example.pinstagram", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         String userId = sharedPreferences.getString("userId","B");
 
         ActionBar actionBar = getSupportActionBar();
@@ -53,8 +56,22 @@ public class UserProfile extends AppCompatActivity {
         noOfFollowing=findViewById(R.id.no_of_following_t);
         noOfFollowers=findViewById(R.id.no_of_followers2_t);
         followBtn=findViewById(R.id.button_follow_t);
+        follower= findViewById(R.id.followers_t);
+        following = findViewById(R.id.following_t);
 
         userName.setText(targetDto.getName());
+
+        follower.setOnClickListener(view1 -> {
+            editor.putString("targetId",targetDto.getId());
+            editor.apply();
+            startActivity(new Intent(this, Followers.class));
+        });
+
+        following.setOnClickListener(view1 -> {
+            editor.putString("targetId",targetDto.getId());
+            editor.apply();
+            startActivity(new Intent(this, Following.class));
+        });
 
         Retrofit retrofit=MainBuilder.getInstance();
 
@@ -165,18 +182,6 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-//        Retrofit retrofit = MainBuilder.getInstance();
-//        Call<List<>>
-
-//        List<FollowersModel> followersModel=new ArrayList<>();
-//        TextView username = findViewById(R.id.userName_profile);
-//        if(followersModel.getUserName()!=username){
-//        }
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
