@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_feed.xml" value="0.3140625" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/drawable/ic_recommendation.xml" value="0.3140625" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.3140625" />
+        <entry key="app/src/main/res/drawable/p_logo.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/activity_clicked_item.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/activity_comments.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/layout/activity_dash_board_for_post_fragment.xml" value="0.159375" />
@@ -45,6 +47,8 @@
         <entry key="app/src/main/res/layout/story_item.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottomnavigation.xml" value="0.29791666666666666" />
         <entry key="app/src/main/res/menu/options_menu.xml" value="0.29791666666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.13072916666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/xml/searchable.xml" value="0.1897644927536232" />
       </map>
     </option>
