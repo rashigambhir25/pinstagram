@@ -4,6 +4,15 @@ public class LoginDto {
     private String userEmail;
     private String password;
     private String appId;
+    private String deviceId;
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 
     public String getUserEmail() {
         return userEmail;
